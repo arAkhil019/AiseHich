@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance Tracker</title>
+    <style>
+        /* CSS styles for the graph */
+        .graph {
+            width: 400px;
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .bar {
+            display: inline-block;
+            width: 20px;
+            margin-right: 5px;
+            background-color: #007bff;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Attendance Tracker</h1>
+
+    <h2>Subject: Math</h2>
+    <p>Total Classes: <span id="totalClasses">0</span></p>
+    <p>Present Classes: <span id="presentClasses">0</span></p>
+    <p>Absent Classes: <span id="absentClasses">0</span></p>
+
+    <h3>Graph</h3>
+    <div class="graph">
+        <!-- Graph bars will be dynamically added here -->
+    </div>
+
+    <h3>Update Attendance</h3>
+    <form>
+        <label for="isPresent">Present:</label>
+        <input type="checkbox" id="isPresent" name="isPresent">
+        <button type="button" onclick="updateAttendance(document.getElementById('isPresent').checked)">Update</button>
+    </form>
+
+    <script src="first.js"></script>
+</body>
+</html>

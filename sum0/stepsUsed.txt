@@ -1,0 +1,18 @@
+- create two folders: backend, client
+- change directory and install using cmd line:
+  npm init -y
+  npm i mysql express nodemon
+  if nodemon is unrecognised use 'npm install -g nodemon'
+- create index.js file in backend, as it is main file in package json
+- add type:'module' in package json
+- add 'start':'nodemon index.js' so that nodemon starts directly and keeps updating...
+- then create routes and respective operation needed to be done by them
+- Now for getting json format from client, we need to add 'app.use(express.json())'
+- now in client folder, use 'npx create-react-app .' to create react app in folder
+- if error occurs as like no directory found, reinstall react using yarn or npm
+- then open 'app.js' and import browserrouter
+- now create a folder 'pages' to store react files for other functions
+- type 'refce' to get snippet into it
+- now open app.js and start
+- install 'npm install axios' to send/recieve request/repsonse from react app
+- now install 'cors' package in the backend
