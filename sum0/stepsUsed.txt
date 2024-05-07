@@ -16,3 +16,4 @@
 - now open app.js and start
 - install 'npm install axios' to send/recieve request/repsonse from react app
 - now install 'cors' package in the backend
+- and then install 'axios'
