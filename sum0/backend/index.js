@@ -7,6 +7,8 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+const days = {0:'Sun', 1:'Mon', 2:'Tue', 3:'Wed', 4:'Thu', 5:'Fri', 6:'Sat'}
+
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'akhil019',
@@ -30,13 +32,25 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/schedule', (req, res) => {
-    const id = req.params.id
-    const query = 'SELECT * FROM attendance_v1 WHERE id = ?'
-    db.query(query, id, (err, result) => {
+    let day = new Date().getDay()
+    day = days[day]
+    let schedule = {}
+    const query = "SELECT ttable FROM ttables WHERE class='csm'"
+    db.query(query,(err, result) => {
         if(err) {
             console.log(err)
         } else {
-            res.json(result)
+            // res.json("Time Table for today is fetched.")
+            schedule = (JSON.parse(result[0].ttable))[day]
+            console.log(schedule)
+            const q = "SELECT Subject FROM subs WHERE sid IN (?)"
+            db.query(q, [schedule], (err, subtdy) => {
+                if(err) {
+                    console.log(err)
+                } else {
+                    res.json(subtdy)
+                }
+        })
         }
     })
 })
